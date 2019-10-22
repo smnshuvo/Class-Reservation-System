@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "52101651578",
+    "firebase_url": "https://class-reservation-system.firebaseio.com",
+    "project_id": "class-reservation-system",
+    "storage_bucket": "class-reservation-system.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:52101651578:android:595578f44046460011efc3",
+        "android_client_info": {
+          "package_name": "swe.diu.classreservationsystem"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "52101651578-a6hq5tnj8v1pj3kj7hrtbtsqgkt82hbr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzFB-dSMHAfKS3cBB9EEGyeqFrqhr4j2U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "52101651578-a6hq5tnj8v1pj3kj7hrtbtsqgkt82hbr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

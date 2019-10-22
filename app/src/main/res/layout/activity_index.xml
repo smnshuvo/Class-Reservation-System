@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".IndexActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:orientation="horizontal"
+        android:layout_margin="10dp"
+        android:weightSum="3">
+        <ImageView
+
+            android:padding="20px"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/pp_shape"
+            android:src="@drawable/ppic"
+            android:layout_weight="1"
+            android:id="@+id/profile_pic"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:text="SHOUMAN BARUA SHUVO"
+            android:textSize="28dp"
+            android:gravity="center"
+            android:id="@+id/user_name"
+            android:textColor="@drawable/common_google_signin_btn_icon_dark"
+            />
+
+
+
+
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_margin="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/logo_bg"
+        android:orientation="vertical"
+        android:gravity="bottom"
+
+
+        >
+
+        <Button
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Book a room"
+            android:background="@drawable/button_back"
+            android:textColor="#fff"
+
+            />
+
+
+    </LinearLayout>
+
+</LinearLayout>
