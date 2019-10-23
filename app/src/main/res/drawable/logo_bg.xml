@@ -4,11 +4,17 @@
     <gradient
         android:startColor="#fff"
         android:centerColor="#fff"
-        android:endColor="#000"
+        android:endColor="#2196F3"
         android:angle="90" />
 
-    <corners android:bottomRightRadius="70dp"
-        android:bottomLeftRadius="70dp"
-        android:topLeftRadius="35dp"
-        android:topRightRadius="35dp" />
+    <corners android:bottomRightRadius="17dp"
+        android:bottomLeftRadius="17dp"
+        android:topLeftRadius="17dp"
+        android:topRightRadius="17dp" />
+    <stroke
+        android:color="#000"
+        android:width="1dp">
+
+    </stroke>
+
 </shape>

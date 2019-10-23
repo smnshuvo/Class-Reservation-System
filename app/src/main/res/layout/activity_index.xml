@@ -15,7 +15,7 @@
         android:weightSum="3">
         <ImageView
 
-            android:padding="20px"
+            android:padding="1dp"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:background="@drawable/pp_shape"
@@ -24,16 +24,45 @@
             android:id="@+id/profile_pic"
             />
 
-        <TextView
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="0px"
             android:layout_height="match_parent"
             android:layout_weight="2"
-            android:text="SHOUMAN BARUA SHUVO"
-            android:textSize="28dp"
-            android:gravity="center"
-            android:id="@+id/user_name"
-            android:textColor="@drawable/common_google_signin_btn_icon_dark"
-            />
+            android:orientation="vertical"
+            android:weightSum="2"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_weight="1"
+                android:text="SHOUMAN BARUA SHUVO"
+                android:textSize="20dp"
+                android:gravity="right"
+                android:id="@+id/user_name"
+                android:textColor="@drawable/common_google_signin_btn_icon_dark"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="right"
+                >
+                <Button
+                    android:id="@+id/sign_out"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sign OUT"
+                    android:textColor="#fff"
+                    android:background="@drawable/button_back"
+
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
 
 
 
@@ -52,6 +81,7 @@
 
         >
 
+
         <Button
             android:layout_width="300dp"
             android:layout_height="wrap_content"
@@ -59,6 +89,7 @@
             android:text="Book a room"
             android:background="@drawable/button_back"
             android:textColor="#fff"
+
 
             />
 

@@ -24,8 +24,8 @@ import com.google.firebase.auth.GoogleAuthProvider;
 
  public class LoginActivity extends AppCompatActivity {
 
-    FirebaseAuth auth; // firebase authentication
-    GoogleSignInClient mGoogleSignInClient;
+    public static FirebaseAuth auth; // firebase authentication
+    public static GoogleSignInClient mGoogleSignInClient;
     SignInButton signInButton; // Google Sign in
 
     @Override
