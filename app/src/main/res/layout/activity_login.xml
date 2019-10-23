@@ -18,8 +18,9 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/swe_logo_flat"
+        android:src="@drawable/dos_logo"
         />
+
     </LinearLayout>
 
 
@@ -30,10 +31,12 @@
         android:layout_height="match_parent"
         android:layout_weight="2"
         android:orientation="vertical"
+        android:background=""
         android:paddingTop="@android:dimen/app_icon_size"
 
 
         >
+
 
         <com.google.android.gms.common.SignInButton
             android:layout_width="match_parent"
@@ -42,6 +45,31 @@
             android:id="@+id/gsignin"
 
             />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Email didn't work?"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            >
+
+
+
+        </TextView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Click here to now why"
+            android:textStyle="bold"
+            android:textColor="#3F51B5"
+
+            android:textAlignment="center"
+            android:textSize="20dp"
+            >
+
+        </TextView>
 
 
         <TextView
