@@ -27,6 +27,7 @@ public class IndexActivity extends AppCompatActivity {
     ImageView userPic;
     TextView userName;
     Button signOurBurron;
+    Button routineSetter;
 
     // Using this as the index page of our project
     @Override
@@ -37,6 +38,7 @@ public class IndexActivity extends AppCompatActivity {
         userPic = findViewById(R.id.profile_pic);
         userName = findViewById(R.id.user_name);
         signOurBurron = findViewById(R.id.sign_out);
+        routineSetter = findViewById(R.id.set_routine);
 
         final Intent intent = getIntent(); // current Intent
         String displayName = intent.getStringExtra("proName");
@@ -62,7 +64,19 @@ public class IndexActivity extends AppCompatActivity {
             }
         });
 
+
+        routineSetter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(IndexActivity.this , RoutineSetter.class);
+                // do i need to finish the existing activity first? I guess NO
+                startActivity(i);
+            }
+        });
+
+
     }
+
 
     private void loadProfilePicFromURL(String URL){
         Picasso.get()

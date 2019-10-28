@@ -76,7 +76,7 @@
         android:layout_height="match_parent"
         android:background="@drawable/logo_bg"
         android:orientation="vertical"
-        android:gravity="bottom"
+        android:paddingTop="40dp"
 
 
         >
@@ -86,9 +86,10 @@
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Book a room"
+            android:text="Set a routine"
             android:background="@drawable/button_back"
             android:textColor="#fff"
+            android:id="@+id/set_routine"
 
 
             />

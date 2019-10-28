@@ -31,7 +31,6 @@
         android:layout_height="match_parent"
         android:layout_weight="2"
         android:orientation="vertical"
-        android:background=""
         android:paddingTop="@android:dimen/app_icon_size"
 
 
