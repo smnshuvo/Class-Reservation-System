@@ -6,82 +6,43 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity"
     android:orientation="vertical"
-    android:weightSum="5">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="3"
-        android:orientation="vertical"
-        android:background="@drawable/logo_bg"
-        >
-    <ImageView
+    android:background="@drawable/screen_bg">
+
+
+
+
+
+
+
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <com.google.android.gms.common.SignInButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/dos_logo"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:gravity="center"
+        android:id="@+id/gsignin"
+
         />
 
-    </LinearLayout>
+</LinearLayout>
 
 
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="2"
-        android:orientation="vertical"
-        android:paddingTop="@android:dimen/app_icon_size"
-
-
-        >
-
-
-        <com.google.android.gms.common.SignInButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:id="@+id/gsignin"
-
-            />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Email didn't work?"
-            android:textAlignment="center"
-            android:textSize="20dp"
-            >
 
 
 
-        </TextView>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Click here to now why"
-            android:textStyle="bold"
-            android:textColor="#3F51B5"
-
-            android:textAlignment="center"
-            android:textSize="20dp"
-            >
-
-        </TextView>
 
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Copyright Solution Framers"
-            android:gravity="bottom"
-            android:textAlignment="center"
-            android:layout_gravity="bottom"
-            android:textSize="12dp"
-            />
-
-    </LinearLayout>
 
 
 </LinearLayout>

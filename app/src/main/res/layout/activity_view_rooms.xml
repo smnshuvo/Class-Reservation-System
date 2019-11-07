@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ViewRooms">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="These rooms are available on your selected date"
+        android:textColor="#009688">
+
+    </TextView>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/class_list"
+        android:divider="@drawable/button_back"
+        android:dividerHeight="1dp">
+
+
+    </ListView>
+
+    <Button
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="BOOK NOW"
+        android:textColor="#fff"
+        android:background="@drawable/button_back"
+        android:layout_gravity="center"
+        >
+
+
+    </Button>
+
+</LinearLayout>

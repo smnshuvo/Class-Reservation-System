@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.drawable.RoundedBitmapDrawable;
 import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -27,7 +28,8 @@ public class IndexActivity extends AppCompatActivity {
     ImageView userPic;
     TextView userName;
     Button signOurBurron;
-    Button routineSetter;
+    Button roomBooker;
+    Button setNew;
 
     // Using this as the index page of our project
     @Override
@@ -38,13 +40,24 @@ public class IndexActivity extends AppCompatActivity {
         userPic = findViewById(R.id.profile_pic);
         userName = findViewById(R.id.user_name);
         signOurBurron = findViewById(R.id.sign_out);
-        routineSetter = findViewById(R.id.set_routine);
+        roomBooker = findViewById(R.id.book_a_room);
+        setNew = findViewById(R.id.set_new);
+
 
         final Intent intent = getIntent(); // current Intent
         String displayName = intent.getStringExtra("proName");
         String proPicURL = intent.getStringExtra("proPic");
         userName.setText(displayName);
         loadProfilePicFromURL(proPicURL); // to load my profile picture from URL
+
+
+        roomBooker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1 = new Intent(IndexActivity.this, ViewRooms.class);
+                startActivity(intent1);
+            }
+        });
 
 
         signOurBurron.setOnClickListener(new View.OnClickListener() {
@@ -65,17 +78,21 @@ public class IndexActivity extends AppCompatActivity {
         });
 
 
-        routineSetter.setOnClickListener(new View.OnClickListener() {
+        setNew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(IndexActivity.this , RoutineSetter.class);
-                // do i need to finish the existing activity first? I guess NO
+                Intent i = new Intent(IndexActivity.this, TempActivity.class);
                 startActivity(i);
             }
         });
 
 
+
+
+
     }
+
+
 
 
     private void loadProfilePicFromURL(String URL){
