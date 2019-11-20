@@ -30,6 +30,7 @@ public class IndexActivity extends AppCompatActivity {
     Button signOurBurron;
     Button roomBooker;
     Button setNew;
+    Button confirmReservation;
 
     // Using this as the index page of our project
     @Override
@@ -42,6 +43,7 @@ public class IndexActivity extends AppCompatActivity {
         signOurBurron = findViewById(R.id.sign_out);
         roomBooker = findViewById(R.id.book_a_room);
         setNew = findViewById(R.id.set_new);
+        confirmReservation = findViewById(R.id.confirm);
 
 
         final Intent intent = getIntent(); // current Intent
@@ -82,6 +84,14 @@ public class IndexActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(IndexActivity.this, TempActivity.class);
+                startActivity(i);
+            }
+        });
+
+        confirmReservation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(IndexActivity.this, ReservationActivity.class);
                 startActivity(i);
             }
         });

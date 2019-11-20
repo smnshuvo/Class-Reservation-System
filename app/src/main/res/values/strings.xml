@@ -19,4 +19,6 @@
     <string name="confirm_reservation">CONFIRM RESERVATION</string>
     <string name="set_a_new_routine">SET A NEW ROUTINE</string>
     <string name="cancel_my_class">CANCEL A CLASS</string>
+    <string name="rooms">604\n607\n502\n504\n406\n304</string>
+    <string name="book_now">Book Now</string>
 </resources>

@@ -1,34 +1,97 @@
 package swe.diu.classreservationsystem;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.CalendarView;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.time.DayOfWeek;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Dictionary;
+import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+
 public class ViewRooms extends AppCompatActivity {
+    CalendarView calenderView;
 private static final String TAG = "DATABASE";
+private static String SELECTED_DAY = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_rooms);
 
+        // DATABASE Reference
+        final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
 
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("routine");
+
+        // GET my calender
+        calenderView = findViewById(R.id.calender);
+        calenderView.setFirstDayOfWeek(Calendar.SATURDAY); // Bangladesh standard
+
+        calenderView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
+                Calendar c = Calendar.getInstance();
+                c.set(year,month,dayOfMonth);
+                int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
+
+                // dictionary to convert dayofweek to string
+                // i don't know a better way to do this
+                Dictionary days = new Hashtable();
+                days.put(1, "Sunday");
+                days.put(2, "Monday");
+                days.put(3, "Tuesday");
+                days.put(4, "Wednesday");
+                days.put(5, "Thursday");
+                days.put(6, "Friday");
+                days.put(7, "Saturday");
+
+
+
+                SELECTED_DAY = days.get(dayOfWeek).toString().toUpperCase();
+                Toast.makeText(ViewRooms.this, "->" + days.get(dayOfWeek), Toast.LENGTH_SHORT).show();
+                Query myQuery = databaseReference.child("routine").orderByChild("day").equalTo(SELECTED_DAY);
+                myQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        showData(dataSnapshot);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
+
+            }
+        });
+
+
+
+
+        /*
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -41,6 +104,8 @@ private static final String TAG = "DATABASE";
 
             }
         });
+
+         */
 
 
 
@@ -100,5 +165,19 @@ private static final String TAG = "DATABASE";
         ListView listView = findViewById(R.id.class_list);
         listView.setAdapter(arrayAdapter);
 
+        Button roomBook = findViewById(R.id.roomBook);
+
+        roomBook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("reservation");
+                Reservation reservation = new Reservation(23, "605", 1);
+                databaseReference.push().setValue(reservation);
+
+            }
+        });
+
     }
+
+
 }
