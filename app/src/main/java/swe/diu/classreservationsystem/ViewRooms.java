@@ -71,6 +71,7 @@ private static String SELECTED_DAY = null;
 
                 SELECTED_DAY = days.get(dayOfWeek).toString().toUpperCase();
                 Toast.makeText(ViewRooms.this, "->" + days.get(dayOfWeek), Toast.LENGTH_SHORT).show();
+                // Day is the child of routine and routine is the child of root
                 Query myQuery = databaseReference.child("routine").orderByChild("day").equalTo(SELECTED_DAY);
                 myQuery.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -123,6 +124,7 @@ private static String SELECTED_DAY = null;
         listView.setAdapter(arrayAdapter);
         */
         ArrayList<String> arrayList = new ArrayList();
+        ArrayList<String> periods = new ArrayList<String>();
         EmptyRoom emptyRoom = new EmptyRoom();
 
         for (DataSnapshot ds : dataSnapshot.getChildren()){
@@ -141,12 +143,11 @@ private static String SELECTED_DAY = null;
             emptyRoom.setPeriod(ds.getValue(EmptyRoom.class).getPeriod());
 
 
+            periods.add(ds.getValue(EmptyRoom.class).getPeriod());
+
             try {
-                String x = "";
-                if (emptyRoom.getPeriod().equals("1")){
-                    x = "\t\t\t\t\t\t\t\t\t\t8.30 - 10.00\n";
-                } else if (emptyRoom.getPeriod().equals("2")) x = "\t\t\t\t\t\t\t\t\t\t10.00 - 11.30\n";
-                arrayList.add(x +ds.getValue(EmptyRoom.class).getRooms().toString().replaceAll(",", "\n").replace('[',' ').replace(']',' '));
+
+                arrayList.add(ds.getValue(EmptyRoom.class).getRooms().toString().replaceAll(",", "\n").replace('[',' ').replace(']',' '));
 
                /*
                 String date = "On " + ds.getValue(Day.class).getDay() +" NOv at period no "+ ds.getValue(Day.class).getClasses().getPeriod() ;
@@ -162,20 +163,17 @@ private static String SELECTED_DAY = null;
 
         }
         ArrayAdapter arrayAdapter = new ArrayAdapter<String>(this, R.layout.lists, arrayList);
-        ListView listView = findViewById(R.id.class_list);
-        listView.setAdapter(arrayAdapter);
+        ListView listView = (ListView) findViewById(R.id.class_list);
+        //listView.setAdapter(arrayAdapter);
+        String[] rooms = arrayList.toArray(new String[arrayList.size()]);
+        String[] all_periods = periods.toArray(new String[periods.size()]);
+        RoomAdapter roomAdapter = new RoomAdapter(all_periods, rooms, this);
+        listView.setAdapter(roomAdapter);
 
-        Button roomBook = findViewById(R.id.roomBook);
 
-        roomBook.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("reservation");
-                Reservation reservation = new Reservation(23, "605", 1);
-                databaseReference.push().setValue(reservation);
 
-            }
-        });
+
+
 
     }
 
