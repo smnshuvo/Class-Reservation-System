@@ -33,8 +33,9 @@ import java.util.Map;
 
 public class ViewRooms extends AppCompatActivity {
     CalendarView calenderView;
-private static final String TAG = "DATABASE";
-private static String SELECTED_DAY = null;
+    private static final String TAG = "DATABASE";
+    private static String SELECTED_DAY = null;
+    Calendar c; // will use this for calenderView
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         
@@ -52,7 +53,7 @@ private static String SELECTED_DAY = null;
         calenderView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                Calendar c = Calendar.getInstance();
+                c = Calendar.getInstance();
                 c.set(year,month,dayOfMonth);
                 int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
 
@@ -167,7 +168,7 @@ private static String SELECTED_DAY = null;
         //listView.setAdapter(arrayAdapter);
         String[] rooms = arrayList.toArray(new String[arrayList.size()]);
         String[] all_periods = periods.toArray(new String[periods.size()]);
-        RoomAdapter roomAdapter = new RoomAdapter(all_periods, rooms, this);
+        RoomAdapter roomAdapter = new RoomAdapter(all_periods, rooms, c,this);
         listView.setAdapter(roomAdapter);
 
 

@@ -1,20 +1,33 @@
 package swe.diu.classreservationsystem;
 
 public class Reservation {
-    int date;
+    String date;
     String roomNo;
     int status;
+    String period;
 
-    public Reservation(int date, String roomNo, int status) {
+
+
+    public Reservation(String date, String period, String roomNo, int status) {
         this.date = date;
         this.roomNo = roomNo;
+        this.period = period;
         this.status = status;
     }
+
+    public String getPeriod() {
+        return period;
+    }
+
+    public void setPeriod(String period) {
+        this.period = period;
+    }
+
 
     public Reservation() {
     }
 
-    public int getDate() {
+    public String getDate() {
         return date;
     }
 
@@ -26,7 +39,7 @@ public class Reservation {
         return status;
     }
 
-    public void setDate(int date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
