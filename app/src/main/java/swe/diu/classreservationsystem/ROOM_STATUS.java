@@ -5,12 +5,12 @@ public enum ROOM_STATUS {
     PENDING(1),
     BOOKED(2);
 
-    private final int value;
+    private final int STATUS;
 
-    ROOM_STATUS(final int newVal){
-        value = newVal;
+    ROOM_STATUS(final int newStatus){
+        STATUS = newStatus;
 
     }
 
-    public int getValue(){ return value;}
+    public int getValue(){ return STATUS;}
 }

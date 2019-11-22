@@ -17,6 +17,9 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class ReservationActivity extends AppCompatActivity {
+    // NAMING WAS A BIT WRONG
+    // THIS ACTIVITY CONFIRMS RESERVATION
+
 
     private static final String TAG = "RESERVATION ACTIVITY";
 
@@ -37,9 +40,10 @@ public class ReservationActivity extends AppCompatActivity {
                     Reservation reservation = new Reservation();
                     reservation.setDate(ds.getValue(Reservation.class).getDate());
                     reservation.setRoomNo(ds.getValue(Reservation.class).getRoomNo());
+                    reservation.setPeriod(ds.getValue(Reservation.class).getPeriod());
 
 
-                    arrayList.add("Date: " +reservation.getDate() + "Period: 10.00-11.30" + "__ ROOM: " + reservation.getRoomNo());
+                    arrayList.add(reservation.getFormattedDetails());
                     Log.d(TAG, "onDataChange: " + reservation.getDate() + "___" +reservation.getRoomNo());
                     reservation.setStatus(2);
 
@@ -48,9 +52,11 @@ public class ReservationActivity extends AppCompatActivity {
                     //databaseReference.child(ds.getKey()).setValue(reservation);
                 }
 
-                ArrayAdapter arrayAdapter = new ArrayAdapter<String>(ReservationActivity.this, R.layout.lists, arrayList);
+
+                String requestBody[] = arrayList.toArray(new String[arrayList.size()]);
+                ReservationRequestAdapter rAdapter = new ReservationRequestAdapter(requestBody,ReservationActivity.this);
                 ListView listView = findViewById(R.id.list);
-                listView.setAdapter(arrayAdapter);
+                listView.setAdapter(rAdapter);
 
             }
 

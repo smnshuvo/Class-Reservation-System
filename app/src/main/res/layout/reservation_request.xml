@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp"
+    android:elevation="2dp"
+    android:background="@drawable/room_room_numbers"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textColor="#fff"
+        android:gravity="center"
+        android:textSize="25dp"
+        android:background="@drawable/room_period"
+
+        android:text="ROOM REQUEST">
+
+    </TextView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+    <TextView
+        android:id="@+id/rsr_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MR. SHOUMAN BARUA SHUVO\nROOM: 604\nTime: 8.30 - 10.00 AM\nDate: 12-06-2020"
+        android:textColor="#000"
+        android:textSize="24dp"
+        android:paddingLeft="10dp"
+
+        >
+
+    </TextView>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
+        android:layout_width="match_parent"
+        android:gravity="right"
+        android:layout_gravity="bottom"
+        android:layout_height="wrap_content"
+        >
+        <Button
+            android:id="@+id/accept_rs"
+            android:layout_gravity="bottom"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Accept"
+            android:textColor="#fff"
+            android:background="@drawable/button_back">
+
+        </Button>
+
+        <Button
+
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:id="@+id/reject_rs"
+            android:layout_gravity="bottom"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Reject"
+            android:textColor="#fff"
+            android:background="@drawable/button_back">
+
+        </Button>
+    </LinearLayout>
+
+</LinearLayout>
