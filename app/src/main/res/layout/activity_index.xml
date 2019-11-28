@@ -53,6 +53,7 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:text="shouman35-2321@diu.edu.bd"
+                android:id="@+id/user_email"
                 android:textColor="#FF9800"
                 >
 

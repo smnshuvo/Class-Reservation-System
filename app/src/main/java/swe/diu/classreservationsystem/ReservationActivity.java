@@ -41,6 +41,7 @@ public class ReservationActivity extends AppCompatActivity {
                     reservation.setDate(ds.getValue(Reservation.class).getDate());
                     reservation.setRoomNo(ds.getValue(Reservation.class).getRoomNo());
                     reservation.setPeriod(ds.getValue(Reservation.class).getPeriod());
+                    reservation.setAskedBy(ds.getValue(Reservation.class).getAskedBy());
 
 
                     arrayList.add(reservation.getFormattedDetails());

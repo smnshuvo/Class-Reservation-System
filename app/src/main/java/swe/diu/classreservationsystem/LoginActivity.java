@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -89,6 +90,8 @@ import com.google.firebase.auth.GoogleAuthProvider;
                              Intent intent = new Intent(LoginActivity.this, IndexActivity.class);
                              intent.putExtra("proName", user.getDisplayName()); // sending User Full Name to the next intent
                              intent.putExtra("proPic", user.getPhotoUrl().toString()); // Converting the Uri to string
+                             intent.putExtra("email", user.getEmail());
+                             Log.i("GETTING EMAIL", "onComplete: " + user.getEmail());
                              startActivity(intent);
                          } else {
                              // If sign in fails, display a message to the user.

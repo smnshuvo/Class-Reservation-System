@@ -8,16 +8,17 @@ public class Reservation {
     String roomNo;
     int status;
     String period;
-    String askedBy = "System";
+    String askedBy;
     private final Dictionary periodTimeTable = new Hashtable();
 
 
 
-    public Reservation(String date, String period, String roomNo, int status) {
+    public Reservation(String date, String period, String roomNo, int status, String askedBy) {
         this.date = date;
         this.roomNo = roomNo;
         this.period = period;
         this.status = status;
+        this.askedBy = askedBy;
 
         periodTimeTable.put("1", "8.30 - 10.00 AM");
         periodTimeTable.put("2", "10.00 - 11.30 AM");
@@ -70,5 +71,19 @@ public class Reservation {
         } catch (Exception e){pDuration = this.period;}
         String details = String.format("\n%s\nRoom: %s\nTime: %s\nDate: %s\n",this.askedBy, this.roomNo, pDuration, this.date);
         return details;
+    }
+
+
+    // I DIDN'T NOTICE THAT
+    // I HAVEN'T SET A GETTER FOR THIS
+    // IF I HAVE HAD KNOWN THAT
+    // I WON'T HAD TO PASS THE STRING AS
+    // INTENT EXTRA SO FAR
+    public String getAskedBy() {
+        return askedBy;
+    }
+
+    public void setAskedBy(String askedBy) {
+        this.askedBy = askedBy;
     }
 }

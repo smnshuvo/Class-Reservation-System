@@ -10,6 +10,7 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -31,6 +32,9 @@ public class IndexActivity extends AppCompatActivity {
     Button roomBooker;
     Button setNew;
     Button confirmReservation;
+    Button cancel;
+    TextView userMail;
+    String userEmail;
 
     // Using this as the index page of our project
     @Override
@@ -44,10 +48,14 @@ public class IndexActivity extends AppCompatActivity {
         roomBooker = findViewById(R.id.book_a_room);
         setNew = findViewById(R.id.set_new);
         confirmReservation = findViewById(R.id.confirm);
+        cancel = findViewById(R.id.cancel_class);
+        userMail = findViewById(R.id.user_email);
 
 
         final Intent intent = getIntent(); // current Intent
         String displayName = intent.getStringExtra("proName");
+        userEmail = intent.getStringExtra("email");
+        userMail.setText(userEmail);
         String proPicURL = intent.getStringExtra("proPic");
         userName.setText(displayName);
         loadProfilePicFromURL(proPicURL); // to load my profile picture from URL
@@ -57,7 +65,10 @@ public class IndexActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent1 = new Intent(IndexActivity.this, ViewRooms.class);
+                intent1.putExtra("U_email", userEmail);
+                Log.i("EMAIL", "onClick: " + userEmail);
                 startActivity(intent1);
+
             }
         });
 
@@ -97,6 +108,24 @@ public class IndexActivity extends AppCompatActivity {
         });
 
 
+        setNew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            Intent intent = new Intent(IndexActivity.this, RoutineSetterActivity.class);
+            startActivity(intent);
+            }
+        });
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(IndexActivity.this, TempActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+
 
 
 
@@ -129,4 +158,6 @@ public class IndexActivity extends AppCompatActivity {
                     }
                 });
     }
+
+
 }

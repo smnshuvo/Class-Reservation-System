@@ -22,16 +22,23 @@ public class RoomAdapter extends BaseAdapter {
     Calendar calendar;
     private LayoutInflater layoutInflater;
     private final Dictionary periodTimeTable = new Hashtable();
+    private String userEmail;
 
 
-    public RoomAdapter(String[] period, String[] roomNo, Calendar calendar, Context context) {
+    public RoomAdapter(String[] period, String[] roomNo, Calendar calendar, Context context, String userEmail) {
         this.period = period;
         this.roomNo = roomNo;
         this.context = context;
         this.calendar = calendar;
+        this.userEmail = userEmail;
 
         periodTimeTable.put("1", "8.30 - 10.00 AM");
         periodTimeTable.put("2", "10.00 - 11.30 AM");
+        periodTimeTable.put("3", "11.30 - 1.00 PM");
+        periodTimeTable.put("4", "1.00 - 2.30 PM");
+        periodTimeTable.put("5", "2.30 - 4.00 PM");
+        periodTimeTable.put("6", "4.00 - 5.30 PM");
+
     }
 
     @Override
@@ -81,6 +88,7 @@ public class RoomAdapter extends BaseAdapter {
                 intent.putExtra("PERIOD", period[position]);
                 String[] rooms = roomNo[position].split("\\n"); // split string by new line
                 intent.putExtra("EXTRA_ROOMS", rooms);
+                intent.putExtra("email", userEmail);
                 context.startActivity(intent);
 
 

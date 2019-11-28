@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -36,8 +37,13 @@ public class ViewRooms extends AppCompatActivity {
     private static final String TAG = "DATABASE";
     private static String SELECTED_DAY = null;
     Calendar c; // will use this for calenderView
+    private static String email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        final Intent i = getIntent();
+        email = i.getStringExtra("U_email");
+        Log.i(TAG, "EMAIL " + email);
         
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_rooms);
@@ -70,7 +76,7 @@ public class ViewRooms extends AppCompatActivity {
 
 
 
-                SELECTED_DAY = days.get(dayOfWeek).toString().toUpperCase();
+                SELECTED_DAY = days.get(dayOfWeek).toString();
                 Toast.makeText(ViewRooms.this, "->" + days.get(dayOfWeek), Toast.LENGTH_SHORT).show();
                 // Day is the child of routine and routine is the child of root
                 Query myQuery = databaseReference.child("routine").orderByChild("day").equalTo(SELECTED_DAY);
@@ -168,7 +174,7 @@ public class ViewRooms extends AppCompatActivity {
         //listView.setAdapter(arrayAdapter);
         String[] rooms = arrayList.toArray(new String[arrayList.size()]);
         String[] all_periods = periods.toArray(new String[periods.size()]);
-        RoomAdapter roomAdapter = new RoomAdapter(all_periods, rooms, c,this);
+        RoomAdapter roomAdapter = new RoomAdapter(all_periods, rooms, c,this, email); // c is calender
         listView.setAdapter(roomAdapter);
 
 
